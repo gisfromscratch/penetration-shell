@@ -12,45 +12,52 @@ import edu.penetration.model.SimplePoint2dFactory;
 /**
  * Copyright 2018 Jan Tschada
  * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  * 
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 public class PenetrationShell {
 
 	/**
 	 * @param args
+	 * @throws InterruptedException
 	 */
-	public static void main(String[] args) {
-		IObjectFactory factory = new SimplePoint2dFactory();
-		IObjectStore store = new SimpleObjectStore();
-		ITask task = new CreateObjectsTask(factory, store);
-		
-		long count = (long) 1e2;
-		for (; 0 < count; count--) {
-			task.execute();
-		}
-		System.out.println(task.getName());
-		System.out.print("\t");
-		System.out.println(task.getCounter().getStatistics());
-		
-		IObjectEnumeration objects = store.getObjects();
-		ICreatableObject object;
-		while (null != (object = objects.next())) {
-			if (!object.validate()) {
-				System.out.println("Invalid object found!");
-				break;
+	public static void main(String[] args) throws InterruptedException {
+		final long pause = 5000;
+		long rounds = 100;
+		for (; 0 < rounds; rounds--) {
+			IObjectFactory factory = new SimplePoint2dFactory();
+			IObjectStore store = new SimpleObjectStore();
+			ITask task = new CreateObjectsTask(factory, store);
+
+			long objectCount = (long) 1e6;
+			for (; 0 < objectCount; objectCount--) {
+				task.execute();
 			}
+			System.out.println(task.getName());
+			System.out.print("\t");
+			System.out.println(task.getCounter().getStatistics());
+
+			IObjectEnumeration objects = store.getObjects();
+			ICreatableObject object;
+			while (null != (object = objects.next())) {
+				if (!object.validate()) {
+					System.out.println("Invalid object found!");
+					break;
+				}
+			}
+			System.out.println("Pause ...");
+			Thread.sleep(pause);
 		}
-		
+
 		System.out.println("Done ...");
 	}
 }
