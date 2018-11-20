@@ -1,7 +1,7 @@
 /**
  *
  */
-package edu.penetration.shell;
+package edu.penetration.model;
 
 /**
  * Copyright 2018 Jan Tschada
@@ -18,28 +18,34 @@ package edu.penetration.shell;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class NumberOfObjectsCounter implements IPerformanceCounter {
+public class CreateObjectsTask implements ITask {
 
-	private long numberOfObjects;
+	private final IObjectFactory factory;
+	private final IPerformanceCounter counter;
+	private ICreatableObject currentObject;
 	
-	/* (non-Javadoc)
-	 * @see edu.penetration.shell.IPerformanceCounter#getName()
-	 */
+	public CreateObjectsTask(IObjectFactory factory) {
+		this.factory = factory;
+		this.counter = new NumberOfObjectsCounter();
+	}
+
 	@Override
 	public String getName() {
-		return "Number of objects";
-	}
-	
-	/* (non-Javadoc)
-	 * @see edu.penetration.shell.IPerformanceCounter#getStatistics()
-	 */
-	@Override
-	public String getStatistics() {
-		return String.format("%d objects created.", numberOfObjects);
+		return "Create objects task.";
 	}
 
 	@Override
-	public void update() {
-		numberOfObjects++;
+	public void execute() {
+		ICreatableObject last = currentObject;
+		currentObject = factory.create();
+		if (null != last) {
+			last = currentObject;
+		}
+		counter.update();
+	}
+
+	@Override
+	public IPerformanceCounter getCounter() {
+		return counter;
 	}
 }

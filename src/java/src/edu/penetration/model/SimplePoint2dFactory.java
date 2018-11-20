@@ -1,7 +1,9 @@
 /**
  *
  */
-package edu.penetration.shell;
+package edu.penetration.model;
+
+import java.util.Random;
 
 /**
  * Copyright 2018 Jan Tschada
@@ -18,9 +20,23 @@ package edu.penetration.shell;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public interface ICreatableObject {
+public class SimplePoint2dFactory implements IObjectFactory {
 
-	String getName();
+	private static final Random random;
 	
-	void link(ICreatableObject other);
+	static {
+		random = new Random();
+	}
+	
+	/* (non-Javadoc)
+	 * @see edu.penetration.shell.IObjectFactory#create()
+	 */
+	@Override
+	public ICreatableObject create() {
+		double x = -180 + (360.0 * random.nextDouble());
+		double y = -90 + (180.0 * random.nextDouble());
+		int wkid = 4326;
+		return new SimplePoint2d(x, y, wkid);
+	}
+
 }

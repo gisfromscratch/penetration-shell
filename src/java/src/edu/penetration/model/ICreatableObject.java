@@ -1,7 +1,7 @@
 /**
  *
  */
-package edu.penetration.shell;
+package edu.penetration.model;
 
 /**
  * Copyright 2018 Jan Tschada
@@ -18,21 +18,9 @@ package edu.penetration.shell;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public abstract class DefaultCreatableObject implements ICreatableObject {
+public interface ICreatableObject {
 
-	protected ICreatableObject other;
+	String getName();
 	
-	/* (non-Javadoc)
-	 * @see edu.penetration.shell.ICreatableObject#getName()
-	 */
-	@Override
-	public abstract String getName();
-
-	/* (non-Javadoc)
-	 * @see edu.penetration.shell.ICreatableObject#link(edu.penetration.shell.ICreatableObject)
-	 */
-	@Override
-	public void link(ICreatableObject other) {
-		this.other = other;
-	}
+	void link(ICreatableObject other);
 }

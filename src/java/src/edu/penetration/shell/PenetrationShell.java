@@ -1,5 +1,9 @@
 package edu.penetration.shell;
 
+import edu.penetration.model.CreateObjectsTask;
+import edu.penetration.model.ITask;
+import edu.penetration.model.SimplePoint2dFactory;
+
 /**
  * Copyright 2018 Jan Tschada
  * 

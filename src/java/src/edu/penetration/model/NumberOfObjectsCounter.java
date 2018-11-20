@@ -1,7 +1,7 @@
 /**
  *
  */
-package edu.penetration.shell;
+package edu.penetration.model;
 
 /**
  * Copyright 2018 Jan Tschada
@@ -18,11 +18,28 @@ package edu.penetration.shell;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public interface IPerformanceCounter {
+public class NumberOfObjectsCounter implements IPerformanceCounter {
 
-	String getName();
+	private long numberOfObjects;
 	
-	String getStatistics();
+	/* (non-Javadoc)
+	 * @see edu.penetration.shell.IPerformanceCounter#getName()
+	 */
+	@Override
+	public String getName() {
+		return "Number of objects";
+	}
 	
-	void update();
+	/* (non-Javadoc)
+	 * @see edu.penetration.shell.IPerformanceCounter#getStatistics()
+	 */
+	@Override
+	public String getStatistics() {
+		return String.format("%d objects created.", numberOfObjects);
+	}
+
+	@Override
+	public void update() {
+		numberOfObjects++;
+	}
 }

@@ -1,4 +1,7 @@
-package edu.penetration.shell;
+/**
+ *
+ */
+package edu.penetration.model;
 
 /**
  * Copyright 2018 Jan Tschada
@@ -15,11 +18,7 @@ package edu.penetration.shell;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public interface ITask {
+public interface IObjectFactory {
 
-	String getName();
-	
-	void execute();
-	
-	IPerformanceCounter getCounter();
+	ICreatableObject create();
 }

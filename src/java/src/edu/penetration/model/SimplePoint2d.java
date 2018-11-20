@@ -1,7 +1,7 @@
 /**
  *
  */
-package edu.penetration.shell;
+package edu.penetration.model;
 
 /**
  * Copyright 2018 Jan Tschada
@@ -18,34 +18,23 @@ package edu.penetration.shell;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class CreateObjectsTask implements ITask {
+public class SimplePoint2d extends DefaultCreatableObject {
 
-	private final IObjectFactory factory;
-	private final IPerformanceCounter counter;
-	private ICreatableObject currentObject;
+	private double x;
+	private double y;
+	private int wkid;
 	
-	CreateObjectsTask(IObjectFactory factory) {
-		this.factory = factory;
-		this.counter = new NumberOfObjectsCounter();
+	public SimplePoint2d(double x, double y, int wkid) {
+		this.x = x;
+		this.y = y;
+		this.wkid = wkid;
 	}
-
+	
+	/* (non-Javadoc)
+	 * @see edu.penetration.shell.ICreatableObject#getName()
+	 */
 	@Override
 	public String getName() {
-		return "Create objects task.";
-	}
-
-	@Override
-	public void execute() {
-		ICreatableObject last = currentObject;
-		currentObject = factory.create();
-		if (null != last) {
-			last = currentObject;
-		}
-		counter.update();
-	}
-
-	@Override
-	public IPerformanceCounter getCounter() {
-		return counter;
+		return "Two dimensional point.";
 	}
 }

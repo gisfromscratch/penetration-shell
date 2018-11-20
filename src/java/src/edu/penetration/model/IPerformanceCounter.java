@@ -1,7 +1,7 @@
 /**
  *
  */
-package edu.penetration.shell;
+package edu.penetration.model;
 
 /**
  * Copyright 2018 Jan Tschada
@@ -18,23 +18,11 @@ package edu.penetration.shell;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class SimplePoint2d extends DefaultCreatableObject {
+public interface IPerformanceCounter {
 
-	private double x;
-	private double y;
-	private int wkid;
+	String getName();
 	
-	public SimplePoint2d(double x, double y, int wkid) {
-		this.x = x;
-		this.y = y;
-		this.wkid = wkid;
-	}
+	String getStatistics();
 	
-	/* (non-Javadoc)
-	 * @see edu.penetration.shell.ICreatableObject#getName()
-	 */
-	@Override
-	public String getName() {
-		return "Two dimensional point.";
-	}
+	void update();
 }
