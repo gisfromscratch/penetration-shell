@@ -22,9 +22,11 @@ import java.time.Instant;
  */
 public class MeasureDurationTask implements ITask {
 	
+	private final String name;
 	private final ExecutionTimeCounter counter;
 	
-	public MeasureDurationTask() {
+	public MeasureDurationTask(final String name) {
+		this.name = name;
 		counter = new ExecutionTimeCounter();
 	}
 	
@@ -33,7 +35,7 @@ public class MeasureDurationTask implements ITask {
 	 */
 	@Override
 	public String getName() {
-		return "Measure duration task.";
+		return name;
 	}
 
 	/* (non-Javadoc)

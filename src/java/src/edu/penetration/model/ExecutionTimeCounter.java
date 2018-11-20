@@ -43,7 +43,7 @@ public class ExecutionTimeCounter implements IPerformanceCounter {
 			return "Counter was not started!";
 		}
 		long seconds = Duration.between(start, stop).toMillis();
-		return String.format("%d msecs elapsed.", seconds);
+		return String.format("%d msec elapsed.", seconds);
 	}
 
 	/* (non-Javadoc)
