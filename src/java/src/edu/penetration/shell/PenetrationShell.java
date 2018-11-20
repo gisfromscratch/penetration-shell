@@ -1,7 +1,12 @@
 package edu.penetration.shell;
 
 import edu.penetration.model.CreateObjectsTask;
+import edu.penetration.model.ICreatableObject;
+import edu.penetration.model.IObjectEnumeration;
+import edu.penetration.model.IObjectFactory;
+import edu.penetration.model.IObjectStore;
 import edu.penetration.model.ITask;
+import edu.penetration.model.SimpleObjectStore;
 import edu.penetration.model.SimplePoint2dFactory;
 
 /**
@@ -25,16 +30,27 @@ public class PenetrationShell {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SimplePoint2dFactory factory = new SimplePoint2dFactory();
-		ITask task = new CreateObjectsTask(factory);
+		IObjectFactory factory = new SimplePoint2dFactory();
+		IObjectStore store = new SimpleObjectStore();
+		ITask task = new CreateObjectsTask(factory, store);
 		
-		long count = (long) 1e12;
+		long count = (long) 1e2;
 		for (; 0 < count; count--) {
 			task.execute();
 		}
 		System.out.println(task.getName());
 		System.out.print("\t");
 		System.out.println(task.getCounter().getStatistics());
+		
+		IObjectEnumeration objects = store.getObjects();
+		ICreatableObject object;
+		while (null != (object = objects.next())) {
+			if (!object.validate()) {
+				System.out.println("Invalid object found!");
+				break;
+			}
+		}
+		
 		System.out.println("Done ...");
 	}
 }

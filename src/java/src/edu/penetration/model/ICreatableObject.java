@@ -22,5 +22,9 @@ public interface ICreatableObject {
 
 	String getName();
 	
-	void link(ICreatableObject other);
+	ICreatableObject getNext();
+	
+	void setNext(ICreatableObject other);
+	
+	boolean validate();
 }

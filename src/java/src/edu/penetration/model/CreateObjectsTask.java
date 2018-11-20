@@ -21,11 +21,12 @@ package edu.penetration.model;
 public class CreateObjectsTask implements ITask {
 
 	private final IObjectFactory factory;
+	private final IObjectStore store;
 	private final IPerformanceCounter counter;
-	private ICreatableObject currentObject;
 	
-	public CreateObjectsTask(IObjectFactory factory) {
+	public CreateObjectsTask(IObjectFactory factory, IObjectStore store) {
 		this.factory = factory;
+		this.store = store;
 		this.counter = new NumberOfObjectsCounter();
 	}
 
@@ -36,11 +37,8 @@ public class CreateObjectsTask implements ITask {
 
 	@Override
 	public void execute() {
-		ICreatableObject last = currentObject;
-		currentObject = factory.create();
-		if (null != last) {
-			last = currentObject;
-		}
+		ICreatableObject newObject = factory.create();
+		store.add(newObject);
 		counter.update();
 	}
 

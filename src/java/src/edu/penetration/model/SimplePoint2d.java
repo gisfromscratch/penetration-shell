@@ -37,4 +37,15 @@ public class SimplePoint2d extends DefaultCreatableObject {
 	public String getName() {
 		return "Two dimensional point.";
 	}
+
+	/* (non-Javadoc)
+	 * @see edu.penetration.shell.ICreatableObject#validate()
+	 */
+	@Override
+	public boolean validate() {
+		if (4326 == wkid) {
+			return (-180 <= x && x <= 180 && -90 <= y && y <= 90);
+		}
+		return true;
+	}
 }

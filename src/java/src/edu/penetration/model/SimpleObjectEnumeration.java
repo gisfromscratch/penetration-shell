@@ -18,29 +18,36 @@ package edu.penetration.model;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public abstract class DefaultCreatableObject implements ICreatableObject {
+public class SimpleObjectEnumeration implements IObjectEnumeration {
 
-	private ICreatableObject other;
+	private final ICreatableObject first;
+	private ICreatableObject current;
+	
+	public SimpleObjectEnumeration(ICreatableObject first) {
+		this.first = first;
+		this.current = first;
+	}
 	
 	/* (non-Javadoc)
-	 * @see edu.penetration.shell.ICreatableObject#getName()
+	 * @see edu.penetration.model.IObjectEnumeration#next()
 	 */
 	@Override
-	public abstract String getName();
-	
-	/* (non-Javadoc)
-	 * @see edu.penetration.shell.ICreatableObject#getNext
-	 */
-	@Override
-	public ICreatableObject getNext() {
-		return other;
+	public ICreatableObject next() {
+		if (null == current) {
+			return null;
+		}
+		
+		ICreatableObject result = current;
+		current = result.getNext();
+		return result;
 	}
 
 	/* (non-Javadoc)
-	 * @see edu.penetration.shell.ICreatableObject#setNext(edu.penetration.shell.ICreatableObject)
+	 * @see edu.penetration.model.IObjectEnumeration#reset()
 	 */
 	@Override
-	public void setNext(ICreatableObject other) {
-		this.other = other;
+	public void reset() {
+		this.current = this.first;
 	}
+
 }
