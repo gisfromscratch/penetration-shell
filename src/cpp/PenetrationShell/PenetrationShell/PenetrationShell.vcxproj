@@ -160,6 +160,7 @@
     <ClInclude Include="ITask.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SimplePoint2d.h" />
+    <ClInclude Include="SimplePoint2dFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DefaultCreatableObject.cpp" />
@@ -177,6 +178,7 @@
     </ClCompile>
     <ClCompile Include="PenetrationShell.cpp" />
     <ClCompile Include="SimplePoint2d.cpp" />
+    <ClCompile Include="SimplePoint2dFactory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -14,23 +14,31 @@
  * limitations under the License.
  */
 
-#ifndef IOBJECTFACTORY_H
-#define IOBJECTFACTORY_H
+#ifndef SIMPLEPOINT2DFACTORY_H
+#define SIMPLEPOINT2DFACTORY_H
 
 #pragma once
 
-#include "ICreatableObject.h"
+#include "pch.h"
+#include "IObjectFactory.h"
+
+using namespace std;
 
 namespace model
 {
-	class IObjectFactory
+	class SimplePoint2dFactory : public IObjectFactory
 	{
 	public:
-		IObjectFactory();
-		virtual ~IObjectFactory();
+		SimplePoint2dFactory();
+		~SimplePoint2dFactory();
 
-		virtual ICreatableObject* create() = 0;
+		ICreatableObject* create() override;
+
+	private:
+		random_device _device;
+		mt19937 _generator;
+		uniform_real_distribution<double> _distribution;
 	};
 }
 
-#endif
+#endif // !SIMPLEPOINT2DFACTORY_H
