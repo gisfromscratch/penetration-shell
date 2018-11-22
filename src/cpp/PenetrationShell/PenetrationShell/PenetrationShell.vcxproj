@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CreateObjectsTask.h" />
     <ClInclude Include="DefaultCreatableObject.h" />
     <ClInclude Include="ICreatableObject.h" />
     <ClInclude Include="IObjectEnumeration.h" />
@@ -158,11 +159,13 @@
     <ClInclude Include="IObjectStore.h" />
     <ClInclude Include="IPerformanceCounter.h" />
     <ClInclude Include="ITask.h" />
+    <ClInclude Include="NumberOfObjectsCounter.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SimplePoint2d.h" />
     <ClInclude Include="SimplePoint2dFactory.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CreateObjectsTask.cpp" />
     <ClCompile Include="DefaultCreatableObject.cpp" />
     <ClCompile Include="ICreatableObject.cpp" />
     <ClCompile Include="IObjectEnumeration.cpp" />
@@ -170,6 +173,7 @@
     <ClCompile Include="IObjectStore.cpp" />
     <ClCompile Include="IPerformanceCounter.cpp" />
     <ClCompile Include="ITask.cpp" />
+    <ClCompile Include="NumberOfObjectsCounter.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
