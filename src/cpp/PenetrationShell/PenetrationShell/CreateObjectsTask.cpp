@@ -43,6 +43,6 @@ namespace model
 
 	IPerformanceCounter* CreateObjectsTask::counter() const
 	{
-		return nullptr;// _counter;
+		return _counter;
 	}
 }
