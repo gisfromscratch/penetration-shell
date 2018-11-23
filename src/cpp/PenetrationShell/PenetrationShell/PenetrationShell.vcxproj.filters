@@ -60,6 +60,9 @@
     <ClInclude Include="MeasureDurationTask.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="SimpleObjectStore.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -108,6 +111,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="MeasureDurationTask.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleObjectStore.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

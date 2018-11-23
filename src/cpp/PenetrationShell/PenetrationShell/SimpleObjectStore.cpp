@@ -14,26 +14,35 @@
  * limitations under the License.
  */
 
-#ifndef IOBJECTSTORE_H
-#define IOBJECTSTORE_H
-
-#pragma once
-
-#include "ICreatableObject.h"
-#include "IObjectEnumeration.h"
+#include "pch.h"
+#include "SimpleObjectEnumeration.h"
+#include "SimpleObjectStore.h"
 
 namespace model
 {
-	class IObjectStore
+	SimpleObjectStore::SimpleObjectStore() : _first(nullptr), _last(nullptr)
 	{
-	public:
-		IObjectStore();
-		virtual ~IObjectStore();
+	}
 
-		virtual void add(ICreatableObject*) = 0;
+	SimpleObjectStore::~SimpleObjectStore()
+	{
+	}
 
-		virtual IObjectEnumeration* objects() = 0;
-	};
+	void SimpleObjectStore::add(ICreatableObject *newObject)
+	{
+		if (nullptr == _first)
+		{
+			_first = newObject;
+		}
+		if (nullptr != _last)
+		{
+			_last->setNext(newObject);
+		}
+		_last = newObject;
+	}
+
+	IObjectEnumeration* SimpleObjectStore::objects()
+	{
+		return new SimpleObjectEnumeration(_first);
+	}
 }
-
-#endif // !IOBJECTSTORE_H

@@ -164,6 +164,7 @@
     <ClInclude Include="NumberOfObjectsCounter.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SimpleObjectEnumeration.h" />
+    <ClInclude Include="SimpleObjectStore.h" />
     <ClInclude Include="SimplePoint2d.h" />
     <ClInclude Include="SimplePoint2dFactory.h" />
   </ItemGroup>
@@ -187,6 +188,7 @@
     </ClCompile>
     <ClCompile Include="PenetrationShell.cpp" />
     <ClCompile Include="SimpleObjectEnumeration.cpp" />
+    <ClCompile Include="SimpleObjectStore.cpp" />
     <ClCompile Include="SimplePoint2d.cpp" />
     <ClCompile Include="SimplePoint2dFactory.cpp" />
   </ItemGroup>

@@ -23,7 +23,7 @@
 
 namespace model
 {
-	class SimpleObjectEnumeration : IObjectEnumeration
+	class SimpleObjectEnumeration : public IObjectEnumeration
 	{
 	public:
 		SimpleObjectEnumeration(ICreatableObject*);

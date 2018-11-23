@@ -14,26 +14,29 @@
  * limitations under the License.
  */
 
-#ifndef IOBJECTSTORE_H
-#define IOBJECTSTORE_H
+#ifndef SIMPLEOBJECTSTORE_H
+#define SIMPLEOBJECTSTORE_H
 
 #pragma once
 
-#include "ICreatableObject.h"
-#include "IObjectEnumeration.h"
+#include "IObjectStore.h"
 
 namespace model
 {
-	class IObjectStore
+	class SimpleObjectStore : IObjectStore
 	{
 	public:
-		IObjectStore();
-		virtual ~IObjectStore();
+		SimpleObjectStore();
+		~SimpleObjectStore();
 
-		virtual void add(ICreatableObject*) = 0;
+		void add(ICreatableObject*) override;
 
-		virtual IObjectEnumeration* objects() = 0;
+		IObjectEnumeration* objects() override;
+
+	private:
+		ICreatableObject *_first;
+		ICreatableObject *_last;
 	};
 }
 
-#endif // !IOBJECTSTORE_H
+#endif // !SIMPLEOBJECTSTORE_H
