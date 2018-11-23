@@ -22,6 +22,7 @@
 #include "IObjectFactory.h"
 #include "IObjectStore.h"
 #include "ITask.h"
+#include "IPerformanceCounter.h"
 
 namespace model
 {
@@ -31,9 +32,16 @@ namespace model
 		CreateObjectsTask(IObjectFactory*, IObjectStore*);
 		virtual ~CreateObjectsTask();
 
+		string name() const override;
+
+		void execute() override;
+
+		IPerformanceCounter* counter() const override;
+
 	private:
 		IObjectFactory *_factory;
 		IObjectStore *_store;
+		IPerformanceCounter *_counter;
 	};
 }
 

@@ -23,17 +23,17 @@
 
 namespace model
 {
-	class NumberOfObjectsCounter : IPerformanceCounter
+	class NumberOfObjectsCounter : public IPerformanceCounter
 	{
 	public:
 		NumberOfObjectsCounter();
 		~NumberOfObjectsCounter();
 
-		string name() const;
+		string name() const override;
 
-		string statistics() const;
+		string statistics() const override;
 
-		void update();
+		void update() override;
 
 	private:
 		long _numberOfObjects;

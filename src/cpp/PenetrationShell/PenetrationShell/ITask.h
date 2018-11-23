@@ -19,9 +19,8 @@
 
 #pragma once
 
-class IPerformanceCounter;
-
 #include "pch.h"
+#include "IPerformanceCounter.h"
 
 using namespace std;
 

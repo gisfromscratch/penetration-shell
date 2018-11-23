@@ -16,14 +16,33 @@
 
 #include "pch.h"
 #include "CreateObjectsTask.h"
+#include "NumberOfObjectsCounter.h"
 
 namespace model
 {
-	CreateObjectsTask::CreateObjectsTask(IObjectFactory *factory, IObjectStore *store) : _factory(factory), _store(store)
+	CreateObjectsTask::CreateObjectsTask(IObjectFactory *factory, IObjectStore *store) : _factory(factory), _store(store), _counter(new NumberOfObjectsCounter())
 	{
 	}
 
 	CreateObjectsTask::~CreateObjectsTask()
 	{
+		delete _counter;
+	}
+
+	string CreateObjectsTask::name() const
+	{
+		return "Create objects task.";
+	}
+
+	void CreateObjectsTask::execute()
+	{
+		auto newObject = _factory->create();
+		_store->add(newObject);
+		_counter->update();
+	}
+
+	IPerformanceCounter* CreateObjectsTask::counter() const
+	{
+		return nullptr;// _counter;
 	}
 }

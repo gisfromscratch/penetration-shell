@@ -32,11 +32,11 @@ namespace model
 		ExecutionTimeCounter();
 		~ExecutionTimeCounter();
 
-		string name() const;
+		string name() const override;
 
-		string statistics() const;
+		string statistics() const override;
 
-		void update();
+		void update() override;
 
 	private:
 		bool _running;
