@@ -14,36 +14,36 @@
  * limitations under the License.
  */
 
-#ifndef EXECUTIONTIMECOUNTER_H
-#define EXECUTIONTIMECOUNTER_H
+#ifndef MEASUREDURATIONTASK_H
+#define MEASUREDURATIONTASK_H
 
 #pragma once
 
 #include "pch.h"
 #include "IPerformanceCounter.h"
+#include "ITask.h"
 
-using namespace chrono;
+using namespace std;
 
 namespace model
 {
-	class ExecutionTimeCounter : public IPerformanceCounter
+	class MeasureDurationTask : ITask
 	{
 	public:
-		ExecutionTimeCounter();
-		~ExecutionTimeCounter();
+		MeasureDurationTask(const string&);
+		~MeasureDurationTask();
 
 		string name() const override;
 
-		string statistics() const override;
+		void execute() override;
 
-		void update() override;
+		IPerformanceCounter* counter() const override;
 
 	private:
-		bool _running;
-		bool _stopped;
-		system_clock::time_point _start;
-		system_clock::time_point _end;
+		IPerformanceCounter *_counter;
+		string _name;
+
 	};
 }
 
-#endif // !EXECUTIONTIMECOUNTER_H
+#endif // !MEASUREDURATIONTASK_H

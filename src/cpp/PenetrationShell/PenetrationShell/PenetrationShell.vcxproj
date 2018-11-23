@@ -160,6 +160,7 @@
     <ClInclude Include="IObjectStore.h" />
     <ClInclude Include="IPerformanceCounter.h" />
     <ClInclude Include="ITask.h" />
+    <ClInclude Include="MeasureDurationTask.h" />
     <ClInclude Include="NumberOfObjectsCounter.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SimpleObjectEnumeration.h" />
@@ -176,6 +177,7 @@
     <ClCompile Include="IObjectStore.cpp" />
     <ClCompile Include="IPerformanceCounter.cpp" />
     <ClCompile Include="ITask.cpp" />
+    <ClCompile Include="MeasureDurationTask.cpp" />
     <ClCompile Include="NumberOfObjectsCounter.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

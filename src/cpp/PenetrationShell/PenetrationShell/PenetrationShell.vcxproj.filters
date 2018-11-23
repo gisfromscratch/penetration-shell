@@ -57,6 +57,9 @@
     <ClInclude Include="SimpleObjectEnumeration.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="MeasureDurationTask.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -102,6 +105,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="SimpleObjectEnumeration.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="MeasureDurationTask.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
