@@ -23,7 +23,7 @@
 
 namespace model
 {
-	class SimpleObjectStore : IObjectStore
+	class SimpleObjectStore : public IObjectStore
 	{
 	public:
 		SimpleObjectStore();

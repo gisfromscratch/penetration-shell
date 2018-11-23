@@ -27,7 +27,7 @@ using namespace std;
 
 namespace model
 {
-	class MeasureDurationTask : ITask
+	class MeasureDurationTask : public ITask
 	{
 	public:
 		MeasureDurationTask(const string&);

@@ -26,7 +26,7 @@
 
 namespace model
 {
-	class CreateObjectsTask : ITask
+	class CreateObjectsTask : public ITask
 	{
 	public:
 		CreateObjectsTask(IObjectFactory*, IObjectStore*);
