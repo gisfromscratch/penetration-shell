@@ -14,25 +14,29 @@
  * limitations under the License.
  */
 
-#ifndef IOBJECTENUMERATION_H
-#define IOBJECTENUMERATION_H
+#ifndef SIMPLEOBJECTENUMERATION_H
+#define SIMPLEOBJECTENUMERATION_H
 
 #pragma once
 
-#include "ICreatableObject.h"
+#include "IObjectEnumeration.h"
 
 namespace model
 {
-	class IObjectEnumeration
+	class SimpleObjectEnumeration : IObjectEnumeration
 	{
 	public:
-		IObjectEnumeration();
-		virtual ~IObjectEnumeration();
+		SimpleObjectEnumeration(ICreatableObject*);
+		~SimpleObjectEnumeration();
 
-		virtual ICreatableObject *next() = 0;
+		ICreatableObject* next() override;
 
-		virtual void reset() = 0;
+		void reset() override;
+
+	private:
+		ICreatableObject *_first;
+		ICreatableObject *_current;
 	};
 }
 
-#endif // !IOBJECTENUMERATION_H
+#endif // !SIMPLEOBJECTENUMERATION_H

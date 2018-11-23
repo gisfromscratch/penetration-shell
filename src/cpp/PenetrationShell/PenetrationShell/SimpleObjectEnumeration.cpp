@@ -14,25 +14,33 @@
  * limitations under the License.
  */
 
-#ifndef IOBJECTENUMERATION_H
-#define IOBJECTENUMERATION_H
-
-#pragma once
-
-#include "ICreatableObject.h"
+#include "pch.h"
+#include "SimpleObjectEnumeration.h"
 
 namespace model
 {
-	class IObjectEnumeration
+	SimpleObjectEnumeration::SimpleObjectEnumeration(ICreatableObject *first) : _first(first), _current(first)
 	{
-	public:
-		IObjectEnumeration();
-		virtual ~IObjectEnumeration();
+	}
 
-		virtual ICreatableObject *next() = 0;
+	SimpleObjectEnumeration::~SimpleObjectEnumeration()
+	{
+	}
 
-		virtual void reset() = 0;
-	};
+	ICreatableObject* SimpleObjectEnumeration::next()
+	{
+		if (nullptr == _current)
+		{
+			return nullptr;
+		}
+
+		auto result = _current;
+		_current = result->next();
+		return result;
+	}
+
+	void SimpleObjectEnumeration::reset()
+	{
+		_current = _first;
+	}
 }
-
-#endif // !IOBJECTENUMERATION_H

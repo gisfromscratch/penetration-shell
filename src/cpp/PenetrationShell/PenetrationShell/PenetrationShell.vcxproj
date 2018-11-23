@@ -162,6 +162,7 @@
     <ClInclude Include="ITask.h" />
     <ClInclude Include="NumberOfObjectsCounter.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="SimpleObjectEnumeration.h" />
     <ClInclude Include="SimplePoint2d.h" />
     <ClInclude Include="SimplePoint2dFactory.h" />
   </ItemGroup>
@@ -183,6 +184,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="PenetrationShell.cpp" />
+    <ClCompile Include="SimpleObjectEnumeration.cpp" />
     <ClCompile Include="SimplePoint2d.cpp" />
     <ClCompile Include="SimplePoint2dFactory.cpp" />
   </ItemGroup>
