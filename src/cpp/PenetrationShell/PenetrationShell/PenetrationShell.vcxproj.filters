@@ -69,6 +69,27 @@
     <ClInclude Include="SimplePoint2dRefFactory.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="IObjectRefStore.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="IObjectRefEnumeration.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleObjectRefEnumeration.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="ICreatableObjectRef.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultCreatableObjectRef.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="SimplePoint2dRef.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleObjectRefStore.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -126,6 +147,27 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="SimplePoint2dRefFactory.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="IObjectRefStore.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="IObjectRefEnumeration.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleObjectRefEnumeration.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="ICreatableObjectRef.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultCreatableObjectRef.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="SimplePoint2dRef.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleObjectRefStore.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

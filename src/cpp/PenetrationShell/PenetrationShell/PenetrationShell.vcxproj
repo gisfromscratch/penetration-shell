@@ -153,11 +153,15 @@
   <ItemGroup>
     <ClInclude Include="CreateObjectsTask.h" />
     <ClInclude Include="DefaultCreatableObject.h" />
+    <ClInclude Include="DefaultCreatableObjectRef.h" />
     <ClInclude Include="ExecutionTimeCounter.h" />
     <ClInclude Include="ICreatableObject.h" />
+    <ClInclude Include="ICreatableObjectRef.h" />
     <ClInclude Include="IObjectEnumeration.h" />
     <ClInclude Include="IObjectFactory.h" />
+    <ClInclude Include="IObjectRefEnumeration.h" />
     <ClInclude Include="IObjectRefFactory.h" />
+    <ClInclude Include="IObjectRefStore.h" />
     <ClInclude Include="IObjectStore.h" />
     <ClInclude Include="IPerformanceCounter.h" />
     <ClInclude Include="ITask.h" />
@@ -165,19 +169,26 @@
     <ClInclude Include="NumberOfObjectsCounter.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SimpleObjectEnumeration.h" />
+    <ClInclude Include="SimpleObjectRefEnumeration.h" />
+    <ClInclude Include="SimpleObjectRefStore.h" />
     <ClInclude Include="SimpleObjectStore.h" />
     <ClInclude Include="SimplePoint2d.h" />
     <ClInclude Include="SimplePoint2dFactory.h" />
+    <ClInclude Include="SimplePoint2dRef.h" />
     <ClInclude Include="SimplePoint2dRefFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CreateObjectsTask.cpp" />
     <ClCompile Include="DefaultCreatableObject.cpp" />
+    <ClCompile Include="DefaultCreatableObjectRef.cpp" />
     <ClCompile Include="ExecutionTimeCounter.cpp" />
     <ClCompile Include="ICreatableObject.cpp" />
+    <ClCompile Include="ICreatableObjectRef.cpp" />
     <ClCompile Include="IObjectEnumeration.cpp" />
     <ClCompile Include="IObjectFactory.cpp" />
+    <ClCompile Include="IObjectRefEnumeration.cpp" />
     <ClCompile Include="IObjectRefFactory.cpp" />
+    <ClCompile Include="IObjectRefStore.cpp" />
     <ClCompile Include="IObjectStore.cpp" />
     <ClCompile Include="IPerformanceCounter.cpp" />
     <ClCompile Include="ITask.cpp" />
@@ -191,9 +202,12 @@
     </ClCompile>
     <ClCompile Include="PenetrationShell.cpp" />
     <ClCompile Include="SimpleObjectEnumeration.cpp" />
+    <ClCompile Include="SimpleObjectRefEnumeration.cpp" />
+    <ClCompile Include="SimpleObjectRefStore.cpp" />
     <ClCompile Include="SimpleObjectStore.cpp" />
     <ClCompile Include="SimplePoint2d.cpp" />
     <ClCompile Include="SimplePoint2dFactory.cpp" />
+    <ClCompile Include="SimplePoint2dRef.cpp" />
     <ClCompile Include="SimplePoint2dRefFactory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
