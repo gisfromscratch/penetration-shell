@@ -63,6 +63,12 @@
     <ClInclude Include="SimpleObjectStore.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="IObjectRefFactory.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="SimplePoint2dRefFactory.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -114,6 +120,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="SimpleObjectStore.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="IObjectRefFactory.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="SimplePoint2dRefFactory.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

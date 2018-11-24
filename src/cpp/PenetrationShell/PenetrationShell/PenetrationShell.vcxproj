@@ -157,6 +157,7 @@
     <ClInclude Include="ICreatableObject.h" />
     <ClInclude Include="IObjectEnumeration.h" />
     <ClInclude Include="IObjectFactory.h" />
+    <ClInclude Include="IObjectRefFactory.h" />
     <ClInclude Include="IObjectStore.h" />
     <ClInclude Include="IPerformanceCounter.h" />
     <ClInclude Include="ITask.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="SimpleObjectStore.h" />
     <ClInclude Include="SimplePoint2d.h" />
     <ClInclude Include="SimplePoint2dFactory.h" />
+    <ClInclude Include="SimplePoint2dRefFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CreateObjectsTask.cpp" />
@@ -175,6 +177,7 @@
     <ClCompile Include="ICreatableObject.cpp" />
     <ClCompile Include="IObjectEnumeration.cpp" />
     <ClCompile Include="IObjectFactory.cpp" />
+    <ClCompile Include="IObjectRefFactory.cpp" />
     <ClCompile Include="IObjectStore.cpp" />
     <ClCompile Include="IPerformanceCounter.cpp" />
     <ClCompile Include="ITask.cpp" />
@@ -191,6 +194,7 @@
     <ClCompile Include="SimpleObjectStore.cpp" />
     <ClCompile Include="SimplePoint2d.cpp" />
     <ClCompile Include="SimplePoint2dFactory.cpp" />
+    <ClCompile Include="SimplePoint2dRefFactory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

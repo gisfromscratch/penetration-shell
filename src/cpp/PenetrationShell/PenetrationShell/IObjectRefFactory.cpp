@@ -14,28 +14,16 @@
  * limitations under the License.
  */
 
-#ifndef SIMPLEPOINT2DFACTORY_H
-#define SIMPLEPOINT2DFACTORY_H
-
-#pragma once
-
-#include "IObjectFactory.h"
+#include "pch.h"
+#include "IObjectRefFactory.h"
 
 namespace model
 {
-	class SimplePoint2dFactory : public IObjectFactory
+	IObjectRefFactory::IObjectRefFactory()
 	{
-	public:
-		SimplePoint2dFactory();
-		~SimplePoint2dFactory();
+	}
 
-		ICreatableObject* create() override;
-
-	private:
-		random_device _device;
-		mt19937 _generator;
-		uniform_real_distribution<double> _distribution;
-	};
+	IObjectRefFactory::~IObjectRefFactory()
+	{
+	}
 }
-
-#endif // !SIMPLEPOINT2DFACTORY_H

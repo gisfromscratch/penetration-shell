@@ -14,28 +14,40 @@
  * limitations under the License.
  */
 
-#ifndef SIMPLEPOINT2DFACTORY_H
-#define SIMPLEPOINT2DFACTORY_H
+#ifndef SIMPLEPOINT2DREFFACTORY_H
+#define SIMPLEPOINT2DREFFACTORY_H
 
 #pragma once
 
-#include "IObjectFactory.h"
+#include "pch.h"
+#include "IObjectRefFactory.h"
+#include "SimplePoint2d.h"
+
+using namespace std;
 
 namespace model
 {
-	class SimplePoint2dFactory : public IObjectFactory
+	class SimplePoint2dRefFactory : public IObjectRefFactory
 	{
 	public:
-		SimplePoint2dFactory();
-		~SimplePoint2dFactory();
+		SimplePoint2dRefFactory();
+		~SimplePoint2dRefFactory();
 
-		ICreatableObject* create() override;
+		ICreatableObject& create() override;
 
 	private:
+		void initialize(const size_t&, const size_t&);
+		void resize(const size_t&);
+
 		random_device _device;
 		mt19937 _generator;
 		uniform_real_distribution<double> _distribution;
+
+		const size_t _capacity = 100000;
+		vector<SimplePoint2d> _objects;
+		size_t _objectIndex;
+		size_t _resizeCount;
 	};
 }
 
-#endif // !SIMPLEPOINT2DFACTORY_H
+#endif // !SIMPLEPOINT2DREFFACTORY_H
