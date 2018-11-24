@@ -23,6 +23,8 @@
 #include "IObjectRefFactory.h"
 #include "SimplePoint2dRef.h"
 
+#include "fsa.h"
+
 using namespace std;
 
 namespace model
@@ -36,12 +38,15 @@ namespace model
 		ICreatableObjectRef& create() override;
 
 	private:
+		void addNewAllocator();
+
 		random_device _device;
 		mt19937 _generator;
 		uniform_real_distribution<double> _distribution;
 
 		const size_t _capacity = 100000;
-		vector<SimplePoint2dRef*> _objects;
+		vector<FixedSizeAllocator<SimplePoint2dRef>*> _allocators;
+		FixedSizeAllocator<SimplePoint2dRef> *_currentAllocator;
 		size_t _objectIndex;
 	};
 }

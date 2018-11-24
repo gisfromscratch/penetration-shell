@@ -155,6 +155,7 @@
     <ClInclude Include="DefaultCreatableObject.h" />
     <ClInclude Include="DefaultCreatableObjectRef.h" />
     <ClInclude Include="ExecutionTimeCounter.h" />
+    <ClInclude Include="fsa.h" />
     <ClInclude Include="ICreatableObject.h" />
     <ClInclude Include="ICreatableObjectRef.h" />
     <ClInclude Include="IObjectEnumeration.h" />

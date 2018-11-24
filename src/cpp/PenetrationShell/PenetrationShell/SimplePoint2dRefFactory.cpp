@@ -19,15 +19,29 @@
 
 namespace model
 {
-	SimplePoint2dRefFactory::SimplePoint2dRefFactory() : _generator(_device()), _distribution(0.0, 1.0)
+	SimplePoint2dRefFactory::SimplePoint2dRefFactory() : _generator(_device()), _distribution(0.0, 1.0), _currentAllocator(new FixedSizeAllocator<SimplePoint2dRef>(_capacity))
 	{
-		_objects.reserve(_capacity);
+		_allocators.push_back(_currentAllocator);
 		_objectIndex = 0;
 	}
 
 	SimplePoint2dRefFactory::~SimplePoint2dRefFactory()
 	{
-		for_each(_objects.begin(), _objects.end(), [] (SimplePoint2dRef *item) { delete item; });
+		for_each(_allocators.begin(), _allocators.end(), [] (FixedSizeAllocator<SimplePoint2dRef> *allocator)
+		{ 
+			for (auto newPoint = allocator->GetFirst(); nullptr != newPoint; newPoint = allocator->GetNext(newPoint))
+			{
+				allocator->free(newPoint);
+			}
+			delete allocator;
+		});
+	}
+
+	void SimplePoint2dRefFactory::addNewAllocator()
+	{
+		_currentAllocator = new FixedSizeAllocator<SimplePoint2dRef>(_capacity);
+		_allocators.push_back(_currentAllocator);
+		_objectIndex = 0;
 	}
 
 	ICreatableObjectRef& SimplePoint2dRefFactory::create()
@@ -35,7 +49,13 @@ namespace model
 		auto x = -180.0 + (360.0 * _distribution(_generator));
 		auto y = -90.0 + (180.0 * _distribution(_generator));
 		auto wkid = 4326;
-		_objects.push_back(new SimplePoint2dRef(x, y, wkid));
-		return *_objects[_objectIndex++];
+
+		if (_capacity == _objectIndex)
+		{
+			addNewAllocator();
+		}
+		auto newPoint = new (_currentAllocator->alloc()) SimplePoint2dRef(x, y, wkid);
+		_objectIndex++;
+		return *newPoint;
 	}
 }
