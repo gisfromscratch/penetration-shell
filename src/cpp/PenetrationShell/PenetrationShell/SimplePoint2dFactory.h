@@ -35,9 +35,17 @@ namespace model
 		ICreatableObject* create() override;
 
 	private:
+		void initialize(const size_t&, const size_t&);
+		void resize(const size_t&);
+
 		random_device _device;
 		mt19937 _generator;
 		uniform_real_distribution<double> _distribution;
+
+		const size_t _capacity = 100000;
+		vector<ICreatableObject*> _objects;
+		size_t _objectIndex;
+		size_t _resizeCount;
 	};
 }
 
