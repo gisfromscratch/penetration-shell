@@ -32,7 +32,7 @@ namespace model
 		return _next;
 	}
 
-	void DefaultCreatableObjectRef::setNext(const ICreatableObjectRef &next)
+	void DefaultCreatableObjectRef::setNext(ICreatableObjectRef &next)
 	{
 		_next = next;
 	}

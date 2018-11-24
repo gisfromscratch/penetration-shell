@@ -35,7 +35,7 @@ namespace model
 
 		virtual ICreatableObjectRef& next() const = 0;
 
-		virtual void setNext(const ICreatableObjectRef&) = 0;
+		virtual void setNext(ICreatableObjectRef&) = 0;
 
 		virtual bool validate() const = 0;
 	};

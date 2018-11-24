@@ -21,7 +21,7 @@
 
 #include "pch.h"
 #include "IObjectRefFactory.h"
-#include "SimplePoint2d.h"
+#include "SimplePoint2dRef.h"
 
 using namespace std;
 
@@ -33,20 +33,16 @@ namespace model
 		SimplePoint2dRefFactory();
 		~SimplePoint2dRefFactory();
 
-		ICreatableObject& create() override;
+		ICreatableObjectRef& create() override;
 
 	private:
-		void initialize(const size_t&, const size_t&);
-		void resize(const size_t&);
-
 		random_device _device;
 		mt19937 _generator;
 		uniform_real_distribution<double> _distribution;
 
 		const size_t _capacity = 100000;
-		vector<SimplePoint2d> _objects;
+		vector<SimplePoint2dRef*> _objects;
 		size_t _objectIndex;
-		size_t _resizeCount;
 	};
 }
 

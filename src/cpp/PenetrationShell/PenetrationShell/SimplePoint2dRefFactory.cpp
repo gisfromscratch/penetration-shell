@@ -21,43 +21,21 @@ namespace model
 {
 	SimplePoint2dRefFactory::SimplePoint2dRefFactory() : _generator(_device()), _distribution(0.0, 1.0)
 	{
-		_objects = vector<SimplePoint2d>(_capacity, SimplePoint2d(0, 0, 0));
-		initialize(0, _capacity);
+		_objects.reserve(_capacity);
 		_objectIndex = 0;
-		_resizeCount = 0;
 	}
 
 	SimplePoint2dRefFactory::~SimplePoint2dRefFactory()
 	{
+		for_each(_objects.begin(), _objects.end(), [] (SimplePoint2dRef *item) { delete item; });
 	}
 
-	void SimplePoint2dRefFactory::initialize(const size_t& startIndex, const size_t& count)
-	{
-		for (auto index = startIndex, lastIndex = startIndex + count - 1; index <= lastIndex; index++)
-		{
-			_objects[index] = SimplePoint2d(0, 0, 0);
-		}
-	}
-
-	void SimplePoint2dRefFactory::resize(const size_t& newSize)
-	{
-		_objects.resize(newSize, SimplePoint2d(0, 0, 0));
-		for (auto index = 0; index < newSize; index++)
-		{
-			_objects.push_back(SimplePoint2d(0, 0, 0));
-		}
-	}
-
-	ICreatableObject& SimplePoint2dRefFactory::create()
+	ICreatableObjectRef& SimplePoint2dRefFactory::create()
 	{
 		auto x = -180.0 + (360.0 * _distribution(_generator));
 		auto y = -90.0 + (180.0 * _distribution(_generator));
 		auto wkid = 4326;
-		if (_objects.size() == _objectIndex)
-		{
-			resize(++_resizeCount * _capacity);
-		}
-		(_objects[_objectIndex]) = SimplePoint2d(x, y, wkid);
-		return _objects[_objectIndex++];
+		_objects.push_back(new SimplePoint2dRef(x, y, wkid));
+		return *_objects[_objectIndex++];
 	}
 }

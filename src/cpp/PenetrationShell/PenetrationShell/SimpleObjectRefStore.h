@@ -33,14 +33,14 @@ namespace model
 		SimpleObjectRefStore(ICreatableObjectRef&);
 		~SimpleObjectRefStore();
 
-		void add(const ICreatableObjectRef&) override;
+		void add(ICreatableObjectRef&) override;
 
 		IObjectRefEnumeration& objects() override;
 
 	private:
 		ICreatableObjectRef &_none;
-		ICreatableObjectRef &_first;
-		ICreatableObjectRef &_last;
+		ICreatableObjectRef *_first;
+		ICreatableObjectRef *_last;
 
 		vector<SimpleObjectRefEnumeration> _enumerations;
 		size_t _enumIndex;

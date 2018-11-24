@@ -19,7 +19,7 @@
 
 namespace model
 {
-	SimpleObjectRefStore::SimpleObjectRefStore(ICreatableObjectRef &none) : _none(none), _first(none), _last(none), _enumIndex(0)
+	SimpleObjectRefStore::SimpleObjectRefStore(ICreatableObjectRef &none) : _none(none), _first(&none), _last(&none), _enumIndex(0)
 	{
 	}
 
@@ -27,22 +27,22 @@ namespace model
 	{
 	}
 
-	void SimpleObjectRefStore::add(const ICreatableObjectRef &newObject)
+	void SimpleObjectRefStore::add(ICreatableObjectRef &newObject)
 	{
-		if (&_none == &_first)
+		if (&_none == _first)
 		{
-			_first = newObject;
+			_first = &newObject;
 		}
-		if (&_none != &_last)
+		if (&_none != _last)
 		{
-			_last.setNext(newObject);
+			_last->setNext(newObject);
 		}
-		_last = newObject;
+		_last = &newObject;
 	}
 
 	IObjectRefEnumeration& SimpleObjectRefStore::objects()
 	{
-		SimpleObjectRefEnumeration enumeration(_none, _first);
+		SimpleObjectRefEnumeration enumeration(_none, *_first);
 		_enumerations.push_back(enumeration);
 		return _enumerations[_enumIndex++];
 	}

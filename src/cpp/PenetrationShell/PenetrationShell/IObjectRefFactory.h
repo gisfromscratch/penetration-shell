@@ -19,7 +19,7 @@
 
 #pragma once
 
-#include "ICreatableObject.h"
+#include "ICreatableObjectRef.h"
 
 namespace model
 {
@@ -29,7 +29,7 @@ namespace model
 		IObjectRefFactory();
 		virtual ~IObjectRefFactory();
 
-		virtual ICreatableObject& create() = 0;
+		virtual ICreatableObjectRef& create() = 0;
 	};
 }
 

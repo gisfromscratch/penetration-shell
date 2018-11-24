@@ -35,11 +35,11 @@ namespace model
 
 		static SimplePoint2dRef& none()
 		{
-			static SimplePoint2dRef none(0,0,0);
-			return none;
+			return _none;
 		}
 
 	private:
+		static SimplePoint2dRef _none;
 		double _x;
 		double _y;
 		int _wkid;

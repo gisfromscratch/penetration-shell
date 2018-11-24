@@ -30,7 +30,7 @@ namespace model
 		IObjectRefStore();
 		virtual ~IObjectRefStore();
 
-		virtual void add(const ICreatableObjectRef&) = 0;
+		virtual void add(ICreatableObjectRef&) = 0;
 
 		virtual IObjectRefEnumeration& objects() = 0;
 	};

@@ -31,7 +31,7 @@ namespace model
 
 		ICreatableObjectRef& next() const;
 
-		void setNext(const ICreatableObjectRef&);
+		void setNext(ICreatableObjectRef&);
 
 	private:
 		ICreatableObjectRef &_next;

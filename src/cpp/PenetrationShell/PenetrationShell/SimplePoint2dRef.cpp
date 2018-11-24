@@ -19,6 +19,8 @@
 
 namespace model
 {
+	SimplePoint2dRef SimplePoint2dRef::_none = SimplePoint2dRef(0, 0, 0);
+
 	SimplePoint2dRef::SimplePoint2dRef(double x, double y, int wkid) : _x(x), _y(y), _wkid(wkid), DefaultCreatableObjectRef(none())
 	{
 	}
