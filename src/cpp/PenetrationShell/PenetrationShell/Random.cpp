@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-#ifndef SIMPLEPOINT2DFACTORY_H
-#define SIMPLEPOINT2DFACTORY_H
-
-#pragma once
-
-#include "IObjectFactory.h"
+#include "pch.h"
 #include "Random.h"
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
+using namespace std::chrono;
 
 namespace model
 {
-	class SimplePoint2dFactory : public IObjectFactory
+	Random::Random()
 	{
-	public:
-		SimplePoint2dFactory();
-		~SimplePoint2dFactory();
+		srand(time(nullptr));
+	}
 
-		ICreatableObject* create() override;
+	Random::~Random()
+	{
+	}
 
-	private:
-		static Random _random;
-	};
+	double Random::nextDouble()
+	{
+		return (double)(rand()/(double)RAND_MAX);
+	}
 }
-
-#endif // !SIMPLEPOINT2DFACTORY_H

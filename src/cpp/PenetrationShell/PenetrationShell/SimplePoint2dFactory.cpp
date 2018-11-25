@@ -20,7 +20,9 @@
 
 namespace model
 {
-	SimplePoint2dFactory::SimplePoint2dFactory() : _generator(_device()), _distribution(0.0, 1.0)
+	Random SimplePoint2dFactory::_random = Random();
+
+	SimplePoint2dFactory::SimplePoint2dFactory()
 	{
 	}
 
@@ -30,8 +32,8 @@ namespace model
 
 	ICreatableObject* SimplePoint2dFactory::create()
 	{
-		auto x = -180.0 + (360.0 * _distribution(_generator));
-		auto y = -90.0 + (180.0 * _distribution(_generator));
+		auto x = -180.0 + (360.0 * _random.nextDouble());
+		auto y = -90.0 + (180.0 * _random.nextDouble());
 		auto wkid = 4326;
 		return new SimplePoint2d(x, y, wkid);
 	}

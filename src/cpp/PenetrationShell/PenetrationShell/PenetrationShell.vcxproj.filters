@@ -93,6 +93,9 @@
     <ClInclude Include="fsa.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -171,6 +174,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="SimpleObjectRefStore.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

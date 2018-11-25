@@ -14,27 +14,21 @@
  * limitations under the License.
  */
 
-#ifndef SIMPLEPOINT2DFACTORY_H
-#define SIMPLEPOINT2DFACTORY_H
+#ifndef RANDOM_H
+#define RANDOM_H
 
 #pragma once
 
-#include "IObjectFactory.h"
-#include "Random.h"
-
 namespace model
 {
-	class SimplePoint2dFactory : public IObjectFactory
+	class Random
 	{
 	public:
-		SimplePoint2dFactory();
-		~SimplePoint2dFactory();
+		Random();
+		~Random();
 
-		ICreatableObject* create() override;
-
-	private:
-		static Random _random;
+		double nextDouble();
 	};
 }
 
-#endif // !SIMPLEPOINT2DFACTORY_H
+#endif // !RANDOM_H
